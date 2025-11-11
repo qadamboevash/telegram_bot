@@ -22,6 +22,8 @@ bot.on("message", async (msg) => {
         resize_keyboard: true,
       },
     });
+  } else if (text === "Sozlamalar ⚙️") {
+    bot.sendMessage(chatId, ``)
   }
 
   else if (text === "Boshlash 🔥") {
@@ -69,13 +71,13 @@ Narxi: 150 000 — 300 000 dollar.`,
 
   else if (text === "Manti") {
     bot.sendPhoto(chatId, "./download.jpg", { caption: "   Manti — 25 000 so‘m" });
-  } 
+  }
   else if (text === "Karam") {
     bot.sendPhoto(chatId, "./Karam.jpg", { caption: " Karam — 15 000 so‘m" });
-  } 
+  }
   else if (text === "Shashlik") {
     bot.sendPhoto(chatId, "./shashlik.jpg", { caption: " Shashlik — 20 000 so‘m" });
-  } 
+  }
   else if (text === "Hotdog") {
     bot.sendPhoto(chatId, "./hotdog.jpg", { caption: " Hotdog — 18 000 so‘m" });
   }
@@ -91,25 +93,61 @@ Narxi: 150 000 — 300 000 dollar.`,
       },
     });
   }
+
+
+
+  if (text == "Sozlamalar ⚙️") {
+    bot.sendPhoto(chatId, "./setting.png", {
+      caption: `Sizga qanday yordam bera olaman!😊`
+    });
+  }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 bot.on("callback_query", (query) => {
   const data = query.data;
   const chatId = query.message.chat.id;
+  bot.answerCallbackQuery(query.id, { text: "Bosildi!!!" })
 
   if (data === "info") {
     bot.sendMessage(chatId, "ℹ Bu yerda Gelik haqida batafsil ma'lumot mavjud.");
-  } 
+  }
   else if (data === "photo") {
     bot.sendPhoto(chatId, "./images.jpg", { caption: "📸 Mana Gelik rasmi!" });
-  } 
+  }
   else if (data === "price") {
     bot.sendMessage(chatId, "Narxi: 175,000 dollar", {
       reply_markup: {
         inline_keyboard: [[{ text: " Sotib olish", callback_data: "buy" }]],
       },
     });
-  } 
+  }
   else if (data === "buy") {
     bot.sendMessage(chatId, " Pullarni Soliyajonga bering... Mashina unda ");
   }
